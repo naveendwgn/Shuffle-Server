@@ -1,6 +1,7 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
+const PORT = process.env.PORT || 8080;
 
 import connectDB from './mongodb/connect.js';
 import postRoutes from './routes/postRoutes.js';
@@ -23,7 +24,7 @@ const startServer = async () => {
 
     try {
         connectDB(process.env.MONGODB_URL);
-        app.listen(8080, () => console.log('Server is running on port http://localhost:8080'));
+        app.listen(PORT, () => console.log('Server is running on port http://localhost:8080'));
     } catch (error) {
        console.log(error); 
     }
